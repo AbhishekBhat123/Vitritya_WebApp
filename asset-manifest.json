@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d2b3b263.css",
+    "main.js": "/static/js/main.d4c072e0.js",
+    "static/media/Vitritya.png": "/static/media/Vitritya.5ebd47216ed2786098ff.png",
+    "index.html": "/index.html",
+    "main.d2b3b263.css.map": "/static/css/main.d2b3b263.css.map",
+    "main.d4c072e0.js.map": "/static/js/main.d4c072e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2b3b263.css",
+    "static/js/main.d4c072e0.js"
+  ]
+}
