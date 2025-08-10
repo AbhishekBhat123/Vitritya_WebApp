@@ -1,38 +1,328 @@
-.App {
-  text-align: center;
+/* General Styling & Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-background {
+  background-color: #f0f2f5;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Main Container Layout */
+.main-container {
+  display: flex;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 1100px;
+  gap: 2rem;
+}
+
+/* Left Section: Form */
+.form-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-header .logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-image {
+  height: 70px;
+  width: auto;
+}
+
+.form-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.form-header .text-red {
+  color: #d9534f;
+}
+
+.form-header .text-green {
+  color: #5cb85c;
+}
+
+.form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+.add-patient-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+/* --- NEW: Style for invalid input fields --- */
+.form-group input.input-error {
+  border-color: #d9534f;
+}
+.form-group input.input-error:focus {
+  outline-color: #d9534f;
+}
+
+/* --- NEW: Style for error messages --- */
+.error-text {
+  color: #d9534f;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  height: 1em; /* Reserve space to prevent layout shift */
+}
+
+.phone-input, .device-input {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.phone-input span {
+  padding: 0.75rem;
+  background-color: #f0f2f5;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.phone-input input {
+  border-radius: 0 8px 8px 0;
+  width: 100%;
+}
+
+.device-input input {
+  flex-grow: 1;
+}
+
+.activate-btn {
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.activate-btn:hover {
+  background-color: #0041a3;
+}
+
+.footer-note {
+  margin-top: 1.5rem;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+/* Activation Flow Arrow */
+.activation-flow {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #aaa;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+.activation-flow.visible {
+  opacity: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.activation-flow .flow-arrow {
+  width: 1px;
+  height: 80px;
+  background: repeating-linear-gradient(
+    to bottom,
+    orange,
+    orange 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.activation-flow .flow-arrow::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid orange;
+}
+
+
+/* Right Section: Patient Data */
+.patient-data-section {
+  flex: 1;
+  min-width: 300px;
+  /* border: 2px dotted #ffc107; */
+  border-radius: 12px;
+  padding: 1.5rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.patient-data-section.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.patient-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.patient-data-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.download-icon {
+  font-size: 1.5rem;
+  color: #8560f1;
+  cursor: pointer;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.data-card {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.data-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icon-wrapper {
+  background-color: #e6f0ff;
+  color: #0052cc;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem auto;
+  font-size: 2rem;
+}
+
+.hemoglobin-icon {
+  position: relative;
+}
+.hemoglobin-icon .droplet {
+    font-size: 2.2rem;
+}
+.hemoglobin-icon .plus {
+    position: absolute;
+    font-size: 0.8rem;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.data-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.data-card p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #555;
+}
+
+
+/* --- RESPONSIVE STYLES --- */
+@media (max-width: 992px) {
+  .app-background { padding: 1rem; }
+  .main-container { flex-direction: column; padding: 1.5rem; }
+  .activation-flow { display: none; }
+  .patient-data-section { transform: translateY(20px); }
+  .patient-data-section.active { transform: translateY(0); }
+}
+
+@media (max-width: 576px) {
+  .app-background { padding: 0.5rem; }
+  .main-container { padding: 1rem; border-radius: 0; box-shadow: none; }
+  .form-header h1 { font-size: 1.25rem; }
+  .form-header h2 { font-size: 1.5rem; }
+  .data-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .data-card { padding: 1rem; }
+  .patient-data-header h3 { font-size: 1.1rem; }
+  .device-input { flex-direction: column; align-items: stretch; }
+  .activate-btn { width: 100%; margin-top: 0.5rem; }
 }
