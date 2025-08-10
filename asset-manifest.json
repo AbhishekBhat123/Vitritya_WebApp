@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Vitritya_WebApp/static/css/main.d2b3b263.css",
+    "main.js": "/Vitritya_WebApp/static/js/main.daa92a1b.js",
+    "static/media/Vitritya.png": "/Vitritya_WebApp/static/media/Vitritya.5ebd47216ed2786098ff.png",
+    "index.html": "/Vitritya_WebApp/index.html",
+    "main.d2b3b263.css.map": "/Vitritya_WebApp/static/css/main.d2b3b263.css.map",
+    "main.daa92a1b.js.map": "/Vitritya_WebApp/static/js/main.daa92a1b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2b3b263.css",
+    "static/js/main.daa92a1b.js"
+  ]
+}
